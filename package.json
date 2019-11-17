@@ -1,0 +1,34 @@
+{
+  "version": "1.0.4",
+  "author": {
+    "name": "isaac"
+  },
+  "bugs": {
+    "url": "https://github.com/isaaxite/vue-dev-debugger/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "commander": "^4.0.1"
+  },
+  "deprecated": false,
+  "description": "a server for learning vue source code",
+  "homepage": "https://github.com/isaaxite/vue-dev-debugger#readme",
+  "keywords": [
+    "vue",
+    "debugger",
+    "simple server"
+  ],
+  "license": "ISC",
+  "main": "./src/vder.js",
+  "bin": {
+    "vder": "./bin/index.js"
+  },
+  "name": "vue-dev-debugger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaaxite/vue-dev-debugger.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

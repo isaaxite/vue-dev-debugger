@@ -1,7 +1,8 @@
-var http = require('http');
 var fs = require('fs');
-var path = require('path');
 var url = require('url');
+var mime = require('mime');
+var path = require('path');
+var http = require('http');
 
 var server = {
   rootDir: './',
@@ -14,15 +15,15 @@ var server = {
       var filePath = path.join(this.rootDir, urlInfo.pathname);
       var headers = {};
 
-
       if (fs.existsSync(filePath)) {
         try {
-          if (filePath.endsWith('.js')) {
-            headers['charset'] = 'UTF-8';
-            headers['Content-Type'] = 'application/javascript';
-          } else {
-            headers['charset'] = 'UTF-8';
-            headers['Content-Type'] = 'text/html';
+          var parsedPath = path.parse(filePath);
+          var contentType = mime.getType(parsedPath.ext);
+          headers['charset'] = 'UTF-8';
+          headers['Content-Type'] = contentType;
+
+          if (!headers['Content-Type']) {
+            throw new Error('Illegal file extension!');
           }
           
           response.writeHead(200, headers);
